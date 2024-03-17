@@ -3,4 +3,7 @@
     <string name="family_connections">Family Connections</string>
     <string name="menu_and_reservations">Menu and Reservations</string>
     <string name="front_desk">Front Desk</string>
+    <string name="activities">Activities</string>
+    <string name="contact">contact</string>
+    <string name="salon">Salon</string>
 </resources>
