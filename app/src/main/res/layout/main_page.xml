@@ -8,15 +8,26 @@
     android:orientation="vertical">
     <!--#f0EAD6 = eggshell color-->
 
+    <ImageView
+        android:id="@+id/profile"
+        android:layout_width="116dp"
+        android:layout_height="72dp"
+        android:layout_marginTop="10dp"
+        android:background="#f0EAD6"
+        android:src="@drawable/contact_foreground"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.003"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/logo"
         android:layout_width="98dp"
         android:layout_height="54dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="20dp"
         android:src="@mipmap/sample_logo"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.99"
+        app:layout_constraintHorizontal_bias="0.971"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -63,7 +74,7 @@
         android:layout_width="93dp"
         android:layout_height="89dp"
         android:layout_marginTop="36dp"
-        android:src="@drawable/baseline_calendar_month_24"
+        android:src="@mipmap/activities_foreground"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.248"
@@ -76,8 +87,8 @@
         android:layout_width="93dp"
         android:layout_height="89dp"
         android:layout_marginTop="36dp"
-        android:src="@drawable/contact_foreground"
-        android:background="#f0EAD6"
+        android:src="@mipmap/contacts_foreground"
+        android:background="#00F0EAD6"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.678"
@@ -85,25 +96,26 @@
         app:layout_constraintTop_toBottomOf="@+id/Front_desk"
         app:layout_constraintVertical_bias="0.0" />
 
+
     <TextView
         android:id="@+id/company_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="28dp"
         android:text="@string/family_connections"
-        android:textSize="30sp"
+        android:textSize="20dp"
         app:layout_constraintEnd_toStartOf="@+id/logo"
+        app:layout_constraintHorizontal_bias="0.894"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
 
     <TextView
         android:id="@+id/restaurant"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/menu_and_reservations"
-        android:textSize="16sp"
+        android:textSize="20s"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.184"
         app:layout_constraintStart_toStartOf="parent"

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "681718117358",
+    "project_id": "family-connections-bc7c6",
+    "storage_bucket": "family-connections-bc7c6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:681718117358:android:ab063332bd98e7b21554ff",
+        "android_client_info": {
+          "package_name": "com.example.familyconnection"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB0MyK7hOdrw-cjkpxkA6Vr10K5k5Zscuc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
