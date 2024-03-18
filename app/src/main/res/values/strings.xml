@@ -6,4 +6,17 @@
     <string name="activities">Activities</string>
     <string name="contact">contact</string>
     <string name="salon">Salon</string>
+    <string name="full_name">Full Name</string>
+    <string name="room">Room # :</string>
+    <string name="room_number">###</string>
+    <string name="lifestyle">Lifestyle:</string>
+    <string name="diet">Diet:</string>
+    <string name="contact_information">Contact Information:</string>
+    <string name="Number_phone">(###) ###-####</string>
+    <string name="phone_number">Phone Number:</string>
+    <string name="email">Email:</string>
+    <string name="allergy">Allergy:</string>
+    <string name="allergy_level">Allergy level</string>
+    <string name="allergy_type">Allergy type</string>
+    <string name="back">Back</string>
 </resources>

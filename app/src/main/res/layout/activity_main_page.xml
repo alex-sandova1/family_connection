@@ -5,6 +5,174 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#f0EAD6"
+    android:orientation="vertical"
     tools:context=".main_page">
+
+    <ImageView
+        android:id="@+id/profile"
+        android:layout_width="116dp"
+        android:layout_height="72dp"
+        android:layout_marginTop="10dp"
+        android:background="#f0EAD6"
+        android:src="@drawable/contact_foreground"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.003"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="98dp"
+        android:layout_height="54dp"
+        android:layout_marginTop="20dp"
+        android:src="@mipmap/sample_logo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.971"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/restaurant_logo"
+        android:layout_width="93dp"
+        android:layout_height="89dp"
+        android:src="@mipmap/restaurant"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/Front_desk_logo"
+        app:layout_constraintHorizontal_bias="0.443"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.151" />
+
+    <ImageView
+        android:id="@+id/Front_desk_logo"
+        android:layout_width="93dp"
+        android:layout_height="89dp"
+        android:layout_marginTop="36dp"
+        android:src="@mipmap/front_desk_icon"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.852"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.099" />
+
+    <ImageView
+        android:id="@+id/salon_logo"
+        android:layout_width="93dp"
+        android:layout_height="89dp"
+        android:layout_marginTop="36dp"
+        android:src="@drawable/ic_action_name"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.852"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.61" />
+
+    <ImageView
+        android:id="@+id/Activities_Icon"
+        android:layout_width="93dp"
+        android:layout_height="89dp"
+        android:layout_marginTop="36dp"
+        android:src="@mipmap/activities_foreground"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.248"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Front_desk"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageView
+        android:id="@+id/contact_logo"
+        android:layout_width="93dp"
+        android:layout_height="89dp"
+        android:layout_marginTop="36dp"
+        android:src="@mipmap/contacts_foreground"
+        android:background="#00F0EAD6"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.678"
+        app:layout_constraintStart_toEndOf="@+id/Activities_Icon"
+        app:layout_constraintTop_toBottomOf="@+id/Front_desk"
+        app:layout_constraintVertical_bias="0.0" />
+
+
+    <TextView
+        android:id="@+id/company_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="28dp"
+        android:text="@string/family_connections"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toStartOf="@+id/logo"
+        app:layout_constraintHorizontal_bias="0.894"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/restaurant"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/menu_and_reservations"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.184"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/restaurant_logo" />
+
+    <TextView
+        android:id="@+id/Front_desk"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/front_desk"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.835"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/Front_desk_logo"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/Calendar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/activities"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.271"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Activities_Icon"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/contact"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/contact"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.681"
+        app:layout_constraintStart_toEndOf="@+id/Calendar"
+        app:layout_constraintTop_toBottomOf="@+id/Activities_Icon"
+        app:layout_constraintVertical_bias="0.002" />
+
+    <TextView
+        android:id="@+id/salon_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/salon"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.681"
+        app:layout_constraintStart_toEndOf="@+id/Calendar"
+        app:layout_constraintTop_toBottomOf="@+id/salon_logo"
+        app:layout_constraintVertical_bias="0.0" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
