@@ -70,6 +70,18 @@
         app:layout_constraintTop_toBottomOf="@+id/profile" />
 
     <TextView
+        android:id="@+id/Lifestyle_input"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="556dp"
+        android:text="@string/input"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.025"
+        app:layout_constraintStart_toEndOf="@+id/Lifestyle" />
+
+    <TextView
         android:id="@+id/diet"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -79,6 +91,20 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.043"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Lifestyle" />
+
+    <TextView
+        android:id="@+id/Diet_input"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="496dp"
+        android:layout_marginTop="30dp"
+        android:text="@string/input"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.022"
+        app:layout_constraintStart_toEndOf="@+id/diet"
         app:layout_constraintTop_toBottomOf="@+id/Lifestyle" />
 
     <TextView

@@ -19,4 +19,5 @@
     <string name="allergy_level">Allergy level</string>
     <string name="allergy_type">Allergy type</string>
     <string name="back">Back</string>
+    <string name="input">input</string>
 </resources>
