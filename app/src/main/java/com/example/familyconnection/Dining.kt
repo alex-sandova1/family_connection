@@ -1,6 +1,8 @@
 package com.example.familyconnection
 
+import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -15,6 +17,10 @@ class Dining : AppCompatActivity() {
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
+        }
+        val Return = findViewById<Button>(R.id.back)
+        Return.setOnClickListener {
+            startActivity(Intent(this, main_page::class.java))
         }
     }
 }
