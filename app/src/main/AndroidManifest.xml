@@ -13,6 +13,21 @@
         android:theme="@style/Theme.FamilyConnection"
         tools:targetApi="31">
         <activity
+            android:name=".Dining"
+            android:exported="false" />
+        <activity
+            android:name=".activities"
+            android:exported="false" />
+        <activity
+            android:name=".salon"
+            android:exported="false" />
+        <activity
+            android:name=".front_desk"
+            android:exported="false" />
+        <activity
+            android:name=".contact"
+            android:exported="false" />
+        <activity
             android:name=".Profile"
             android:exported="false" />
         <activity

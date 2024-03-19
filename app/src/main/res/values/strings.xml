@@ -20,4 +20,6 @@
     <string name="allergy_type">Allergy type</string>
     <string name="back">Back</string>
     <string name="input">input</string>
+    <string name="contact_title">Contact</string>
+    <string name="executive_director">Executive Director</string>
 </resources>

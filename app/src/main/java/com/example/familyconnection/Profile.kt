@@ -2,6 +2,7 @@ package com.example.familyconnection
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
@@ -18,7 +19,7 @@ class Profile : AppCompatActivity() {
         val db = FirebaseFirestore.getInstance()
         val name = "John Doe"
         var nameInput = findViewById<TextView>(R.id.profile_name)
-        var lifestyleInput = findViewById<TextView>(R.id.Lifestyle_input)
+        val lifestyleInput = findViewById<TextView>(R.id.Lifestyle_input)
         setContentView(R.layout.activity_profile)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
@@ -30,5 +31,8 @@ class Profile : AppCompatActivity() {
             startActivity(Intent(this, main_page::class.java))
         }
 
-        }
     }
+
+}
+
+
