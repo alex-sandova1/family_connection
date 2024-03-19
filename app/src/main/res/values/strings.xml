@@ -22,4 +22,6 @@
     <string name="input">input</string>
     <string name="contact_title">Contact</string>
     <string name="executive_director">Executive Director</string>
+    <string name="activities_manager">Activities Manager</string>
+    <string name="email_example_com">Email@example.com</string>
 </resources>
