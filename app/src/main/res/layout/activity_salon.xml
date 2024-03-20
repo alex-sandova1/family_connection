@@ -9,6 +9,17 @@
     android:background="#f0EAD6"
     tools:context=".salon">
 
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="98dp"
+        android:layout_height="54dp"
+        android:layout_marginTop="20dp"
+        android:src="@mipmap/sample_logo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.971"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <Button
         android:id="@+id/back"
         android:layout_width="wrap_content"
