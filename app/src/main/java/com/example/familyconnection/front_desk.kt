@@ -1,8 +1,10 @@
 package com.example.familyconnection
 
 import android.content.Intent
+import android.media.Image
 import android.os.Bundle
 import android.widget.Button
+import android.widget.ImageView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -19,8 +21,13 @@ class front_desk : AppCompatActivity() {
             insets
         }
         val Return = findViewById<Button>(R.id.back)
+        val outing = findViewById<ImageView>(R.id.outing_icon)
+        val faqs = findViewById<ImageView>(R.id.FAQs_icon)
         Return.setOnClickListener {
             startActivity(Intent(this, main_page::class.java))
+        }
+        outing.setOnClickListener {
+            startActivity(Intent(this, Outings::class.java))
         }
     }
 }

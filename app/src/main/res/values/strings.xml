@@ -27,4 +27,7 @@
     <string name="chef">Chef</string>
     <string name="outings">Outings</string>
     <string name="faqs">FAQs</string>
+    <string name="reason_for_outing">Reason for outing:</string>
+    <string name="person_picking_up">Person picking up:</string>
+    <string name="time_of_pick_up">Time of Pick up:</string>
 </resources>
