@@ -25,4 +25,6 @@
     <string name="activities_manager">Activities Manager</string>
     <string name="email_example_com">Email@example.com</string>
     <string name="chef">Chef</string>
+    <string name="outings">Outings</string>
+    <string name="faqs">FAQs</string>
 </resources>
