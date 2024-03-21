@@ -36,4 +36,9 @@
     <string name="mm_dd_yyyy">MM/DD/YYYY</string>
     <string name="confirm">Confirm</string>
     <string name="outing_confirmation">Outing confirmation</string>
+    <string name="service_requested">Service requested:</string>
+    <string name="service">Service</string>
+    <string name="time_of_service">Time of Service:</string>
+    <string name="date_of_service">Date of service:</string>
+    <string name="salon_confirmation">Salon confirmation</string>
 </resources>
