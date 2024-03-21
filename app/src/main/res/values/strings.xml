@@ -31,4 +31,9 @@
     <string name="person_picking_up">Person picking up:</string>
     <string name="time_of_pick_up">Time of Pick up:</string>
     <string name="Company_name">Family Connection</string>
+    <string name="date_of_pick_up">Date of pick-up:</string>
+    <string name="hh_mm">HH:MM</string>
+    <string name="mm_dd_yyyy">MM/DD/YYYY</string>
+    <string name="confirm">Confirm</string>
+    <string name="outing_confirmation">Outing confirmation</string>
 </resources>
