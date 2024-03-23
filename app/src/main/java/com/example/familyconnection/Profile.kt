@@ -17,7 +17,6 @@ class Profile : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         val db = FirebaseFirestore.getInstance()
-        val name = "John Doe"
         var nameInput = findViewById<TextView>(R.id.profile_name)
         val lifestyleInput = findViewById<TextView>(R.id.Lifestyle_input)
         setContentView(R.layout.activity_profile)
