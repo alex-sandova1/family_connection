@@ -14,7 +14,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         val login = findViewById<Button>(R.id.login_button)
         val db = FirebaseFirestore.getInstance()
-
+        //test email: example@ex.com and test password: example
         login.setOnClickListener {
             val email = findViewById<EditText>(R.id.username_input).text.toString()
             val password = findViewById<EditText>(R.id.password_input).text.toString()
