@@ -29,7 +29,6 @@ class Profile : AppCompatActivity() {
         Return.setOnClickListener{
             startActivity(Intent(this, main_page::class.java))
         }
-
     }
 
 }
