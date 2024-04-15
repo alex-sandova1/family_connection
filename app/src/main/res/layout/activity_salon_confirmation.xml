@@ -41,5 +41,32 @@
         app:layout_constraintHorizontal_bias="0.602"
         app:layout_constraintStart_toStartOf="parent" />
 
+    <TextView
+        android:id="@+id/service_confirmation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/confirmation"
+        tools:text="Service Input" />
+
+    <TextView
+        android:id="@+id/date_confirmation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/service_confirmation"
+        tools:text="Date Input" />
+
+    <TextView
+        android:id="@+id/time_confirmation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/date_confirmation"
+        tools:text="Time Input" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
