@@ -1,0 +1,18 @@
+[
+  {
+    "Name" : "Burger",
+    "Description" : "Delicious Grilled Beef patty with a lightly toasted Burger bun served with tomato, mayo and lettuce. Can also be served as a cheeseburger. Meat can only be served medium or well done."
+  },
+  {
+    "Name" : "Catch of the Day",
+    "Description" : "Pan-fried or Grilled Catch of the day served with today’s vegetables and sides or French fries. Ask your server for today’s catch"
+  },
+  {
+    "Name" : "Deli Sandwiches",
+    "Description" : "Choose from our variety of breads and deli meats to create a delicious sandwich. Served with our signature French Fries."
+  },
+  {
+    "Name" : "Omelette",
+    "Description" : "Fresh made omelette served plain, with cheese or veggies"
+  }
+]

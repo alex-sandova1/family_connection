@@ -13,6 +13,12 @@
         android:theme="@style/Theme.FamilyConnection"
         tools:targetApi="31">
         <activity
+            android:name=".DReservationConfirmation"
+            android:exported="false" />
+        <activity
+            android:name=".DiningReservations"
+            android:exported="false" />
+        <activity
             android:name=".salon_confirmation"
             android:exported="false" />
         <activity
