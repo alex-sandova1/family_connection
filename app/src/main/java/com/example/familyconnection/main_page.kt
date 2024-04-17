@@ -1,7 +1,6 @@
 package com.example.familyconnection
 
 import android.content.Intent
-import android.media.Image
 import android.os.Bundle
 import android.widget.ImageView
 import androidx.activity.enableEdgeToEdge
@@ -31,7 +30,7 @@ class main_page : AppCompatActivity() {
             startActivity(Intent(this,activities::class.java))
         }
         contact_page.setOnClickListener{
-            startActivity(Intent(this,contact::class.java))
+            startActivity(Intent(this,Contact::class.java))
         }
         dining_page.setOnClickListener {
             startActivity(Intent(this,Dining::class.java))
