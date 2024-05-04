@@ -1,5 +1,6 @@
 package com.example.familyconnection
 
+import android.text.util.Linkify
 import android.view.LayoutInflater
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
@@ -24,6 +25,10 @@ class ContactAdapter(private val contactsArrayList: ArrayList<Contacts>) : Recyc
         holder.lastName.text = contact.lastName
         holder.email.text = contact.email
         holder.phoneNumber.text = contact.phoneNumber
+
+        // Linkify the email and phone number
+        Linkify.addLinks(holder.email, Linkify.EMAIL_ADDRESSES)
+        Linkify.addLinks(holder.phoneNumber, Linkify.PHONE_NUMBERS)
     }
 
     override fun getItemCount(): Int {
