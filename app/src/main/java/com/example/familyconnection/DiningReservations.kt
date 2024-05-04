@@ -2,8 +2,10 @@ package com.example.familyconnection
 
 import android.app.DatePickerDialog
 import android.app.Dialog
+import android.content.ContentValues.TAG
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.DatePicker
 import android.widget.EditText
@@ -13,6 +15,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.google.firebase.firestore.FirebaseFirestore
 import java.util.Calendar
 
 class DiningReservations : AppCompatActivity() {
@@ -111,6 +114,36 @@ class DiningReservations : AppCompatActivity() {
                 .setMessage("Your Reservation for ${attendees.text} people on ${dateInput.text} at ${timeInput.text} for ${occasion.text} has been confirmed.")
                 .setPositiveButton(android.R.string.ok, null)
                 .show()
+
+            val occasionText = occasion.text.toString()
+            val date = dateInput.text.toString()
+            val time = timeInput.text.toString()
+            val attendeesText = attendees.text.toString()
+
+            if (occasionText.isNotEmpty() && date.isNotEmpty() && time.isNotEmpty() && attendeesText.isNotEmpty()) {
+                val reservation = hashMapOf(
+                    "occasion" to occasionText,
+                    "date" to date,
+                    "time" to time,
+                    "attendees" to attendeesText
+                )
+
+                val db = FirebaseFirestore.getInstance()
+                db.collection("Dinning").add(reservation)
+                    .addOnSuccessListener { documentReference ->
+                        Log.d(TAG, "DocumentSnapshot added with ID: ${documentReference.id}")
+                        AlertDialog.Builder(this)
+                            .setTitle("Confirmation")
+                            .setMessage("Your reservation for $attendeesText people on $date at $time for $occasionText has been confirmed.")
+                            .setPositiveButton(android.R.string.ok, null)
+                            .show()
+                    }
+                    .addOnFailureListener { e ->
+                        Log.w(TAG, "Error adding document", e)
+                    }
+            } else {
+                // Handle case where occasion, date, time or attendees is not set
+            }
         }
     }
 }

@@ -2,8 +2,10 @@ package com.example.familyconnection
 
 import android.app.DatePickerDialog
 import android.app.Dialog
+import android.content.ContentValues.TAG
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.DatePicker
 import android.widget.EditText
@@ -13,9 +15,12 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.google.firebase.firestore.FirebaseFirestore
 import java.util.Calendar
 
 class Outings : AppCompatActivity() {
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -106,11 +111,44 @@ class Outings : AppCompatActivity() {
         }
 
         confirmationButton.setOnClickListener {
+
+
             AlertDialog.Builder(this)
                 .setTitle("Confirmation")
                 .setMessage("Your outing on ${dateInput.text} at ${timeInput.text} has been confirmed.")
                 .setPositiveButton(android.R.string.ok, null)
                 .show()
+
+            val date = dateInput.text.toString()
+            val time = timeInput.text.toString()
+            val reasonText = reason.text.toString()
+            val personPickingUp = person_pickingup.text.toString()
+
+            if (date.isNotEmpty() && time.isNotEmpty() && reasonText.isNotEmpty() && personPickingUp.isNotEmpty()) {
+                val outing = hashMapOf(
+                    "date" to date,
+                    "time" to time,
+                    "reason" to reasonText,
+                    "person_pickingup" to personPickingUp
+                )
+
+                val db = FirebaseFirestore.getInstance()
+                db.collection("Outings").add(outing)
+                    .addOnSuccessListener { documentReference ->
+                        Log.d(TAG, "DocumentSnapshot added with ID: ${documentReference.id}")
+                        AlertDialog.Builder(this)
+                            .setTitle("Confirmation")
+                            .setMessage("Your outing on $date at $time has been confirmed.")
+                            .setPositiveButton(android.R.string.ok, null)
+                            .show()
+                    }
+                    .addOnFailureListener { e ->
+                        Log.w(TAG, "Error adding document", e)
+                    }
+            } else {
+                // Handle case where date, time, reason or person picking up is not set
+            }
+
         }
     }
 }

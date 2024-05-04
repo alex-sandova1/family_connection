@@ -83,7 +83,7 @@
 
     <EditText
         android:id="@+id/time_input"
-        android:layout_width="75dp"
+        android:layout_width="80dp"
         android:layout_height="40dp"
         android:layout_marginTop="28dp"
         android:hint="@string/hh_mm"

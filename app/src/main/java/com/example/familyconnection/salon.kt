@@ -3,8 +3,10 @@ package com.example.familyconnection
 import android.app.DatePickerDialog
 import android.app.Dialog
 import android.app.TimePickerDialog
+import android.content.ContentValues.TAG
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
@@ -19,11 +21,13 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.google.firebase.firestore.FirebaseFirestore
 import java.util.Calendar
 
 class salon : AppCompatActivity() {
 
     private var serviceInput: String? = null
+    val db = FirebaseFirestore.getInstance()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -130,6 +134,34 @@ class salon : AppCompatActivity() {
                 .setMessage("Your appointment for ${serviceInput} on ${dateInput.text} at ${timeInput.text} has been confirmed.")
                 .setPositiveButton(android.R.string.ok, null)
                 .show()
+
+            val service = serviceInput
+            val date = dateInput.text.toString()
+            val time = timeInput.text.toString()
+
+            if (service != null && date.isNotEmpty() && time.isNotEmpty()) {
+                val appointment = hashMapOf(
+                    "service" to service,
+                    "date" to date,
+                    "time" to time
+                )
+
+                db.collection("Salon appointments").add(appointment)
+                    .addOnSuccessListener { documentReference ->
+                        Log.d(TAG, "DocumentSnapshot added with ID: ${documentReference.id}")
+                        AlertDialog.Builder(this)
+                            .setTitle("Confirmation")
+                            .setMessage("Your appointment for $service on $date at $time has been confirmed.")
+                            .setPositiveButton(android.R.string.ok, null)
+                            .show()
+                    }
+                    .addOnFailureListener { e ->
+                        Log.w(TAG, "Error adding document", e)
+                    }
+            } else {
+                Log.d(TAG, "One or more fields are empty")
+            }
+
         }
     }
 }

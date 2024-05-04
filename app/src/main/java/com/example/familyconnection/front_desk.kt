@@ -1,7 +1,6 @@
 package com.example.familyconnection
 
 import android.content.Intent
-import android.media.Image
 import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageView
@@ -30,7 +29,7 @@ class front_desk : AppCompatActivity() {
             startActivity(Intent(this, Outings::class.java))
         }
         faqs.setOnClickListener {
-            startActivity(Intent(this, FAQs::class.java))
+            startActivity(Intent(this, Questions::class.java))
         }
     }
 }
