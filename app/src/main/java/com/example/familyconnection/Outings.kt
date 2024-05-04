@@ -15,6 +15,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import java.util.Calendar
 
@@ -110,45 +111,53 @@ class Outings : AppCompatActivity() {
             dialog.show()
         }
 
-        confirmationButton.setOnClickListener {
+       confirmationButton.setOnClickListener {
+    val date = dateInput.text.toString()
+    val time = timeInput.text.toString()
+    val reasonText = reason.text.toString()
+    val personPickingUp = person_pickingup.text.toString()
 
+    if (date.isNotEmpty() && time.isNotEmpty() && reasonText.isNotEmpty() && personPickingUp.isNotEmpty()) {
+        val db = FirebaseFirestore.getInstance()
+        val auth = FirebaseAuth.getInstance()
+        val user = auth.currentUser
+        if (user != null){
+            val userEmail = user.email
+            db.collection("Users").whereEqualTo("Email", userEmail).get()
+                .addOnSuccessListener { documents ->
+                    for (document in documents) {
+                        Log.d("Profile", "${document.id} => ${document.data}")
+                        val room = document.getString("Room")
+                        Log.d("Room", room.toString())
 
-            AlertDialog.Builder(this)
-                .setTitle("Confirmation")
-                .setMessage("Your outing on ${dateInput.text} at ${timeInput.text} has been confirmed.")
-                .setPositiveButton(android.R.string.ok, null)
-                .show()
+                        val outing = hashMapOf(
+                            "date" to date,
+                            "time" to time,
+                            "reason" to reasonText,
+                            "person_pickingup" to personPickingUp,
+                            "Room" to room
+                        )
 
-            val date = dateInput.text.toString()
-            val time = timeInput.text.toString()
-            val reasonText = reason.text.toString()
-            val personPickingUp = person_pickingup.text.toString()
-
-            if (date.isNotEmpty() && time.isNotEmpty() && reasonText.isNotEmpty() && personPickingUp.isNotEmpty()) {
-                val outing = hashMapOf(
-                    "date" to date,
-                    "time" to time,
-                    "reason" to reasonText,
-                    "person_pickingup" to personPickingUp
-                )
-
-                val db = FirebaseFirestore.getInstance()
-                db.collection("Outings").add(outing)
-                    .addOnSuccessListener { documentReference ->
-                        Log.d(TAG, "DocumentSnapshot added with ID: ${documentReference.id}")
-                        AlertDialog.Builder(this)
-                            .setTitle("Confirmation")
-                            .setMessage("Your outing on $date at $time has been confirmed.")
-                            .setPositiveButton(android.R.string.ok, null)
-                            .show()
+                        db.collection("Outings").add(outing)
+                            .addOnSuccessListener { documentReference ->
+                                Log.d(TAG, "DocumentSnapshot added with ID: ${documentReference.id}")
+                                AlertDialog.Builder(this)
+                                    .setTitle("Confirmation")
+                                    .setMessage("Your outing on $date at $time has been confirmed.")
+                                    .setPositiveButton(android.R.string.ok, null)
+                                    .show()
+                            }
+                            .addOnFailureListener { e ->
+                                Log.w(TAG, "Error adding document", e)
+                            }
                     }
-                    .addOnFailureListener { e ->
-                        Log.w(TAG, "Error adding document", e)
-                    }
-            } else {
-                // Handle case where date, time, reason or person picking up is not set
-            }
-
+                }
+                .addOnFailureListener { exception ->
+                    Log.d("Profile", "Error getting documents: ", exception)
+                }
         }
+    } else {
+        // Handle case where date, time, reason or person picking up is not set
     }
+}}
 }

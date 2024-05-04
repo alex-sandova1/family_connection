@@ -21,6 +21,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import java.util.Calendar
 
@@ -129,39 +130,51 @@ class salon : AppCompatActivity() {
             dialog.show()
         }
         confirm.setOnClickListener {
-            AlertDialog.Builder(this)
-                .setTitle("Confirmation")
-                .setMessage("Your appointment for ${serviceInput} on ${dateInput.text} at ${timeInput.text} has been confirmed.")
-                .setPositiveButton(android.R.string.ok, null)
-                .show()
-
             val service = serviceInput
             val date = dateInput.text.toString()
             val time = timeInput.text.toString()
 
             if (service != null && date.isNotEmpty() && time.isNotEmpty()) {
-                val appointment = hashMapOf(
-                    "service" to service,
-                    "date" to date,
-                    "time" to time
-                )
+                //grab room from user
+                val auth = FirebaseAuth.getInstance()
+                val user = auth.currentUser
+                if (user != null){
+                    val userEmail = user.email
+                    db.collection("Users").whereEqualTo("Email", userEmail).get()
+                        .addOnSuccessListener { documents ->
+                            for (document in documents) {
+                                Log.d("Profile", "${document.id} => ${document.data}")
+                                val room = document.getString("Room")
+                                Log.d("Room", room.toString())
 
-                db.collection("Salon appointments").add(appointment)
-                    .addOnSuccessListener { documentReference ->
-                        Log.d(TAG, "DocumentSnapshot added with ID: ${documentReference.id}")
-                        AlertDialog.Builder(this)
-                            .setTitle("Confirmation")
-                            .setMessage("Your appointment for $service on $date at $time has been confirmed.")
-                            .setPositiveButton(android.R.string.ok, null)
-                            .show()
-                    }
-                    .addOnFailureListener { e ->
-                        Log.w(TAG, "Error adding document", e)
-                    }
+                                val appointment = hashMapOf(
+                                    "service" to service,
+                                    "date" to date,
+                                    "time" to time,
+                                    "Room" to room
+                                )
+
+                                db.collection("Salon appointments").add(appointment)
+                                    .addOnSuccessListener { documentReference ->
+                                        Log.d(TAG, "DocumentSnapshot added with ID: ${documentReference.id}")
+                                        AlertDialog.Builder(this)
+                                            .setTitle("Confirmation")
+                                            .setMessage("Your appointment for $service on $date at $time has been confirmed.")
+                                            .setPositiveButton(android.R.string.ok, null)
+                                            .show()
+                                    }
+                                    .addOnFailureListener { e ->
+                                        Log.w(TAG, "Error adding document", e)
+                                    }
+                            }
+                        }
+                        .addOnFailureListener { exception ->
+                            Log.d("Profile", "Error getting documents: ", exception)
+                        }
+                }
             } else {
                 Log.d(TAG, "One or more fields are empty")
             }
-
         }
     }
 }

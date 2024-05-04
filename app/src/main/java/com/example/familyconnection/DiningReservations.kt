@@ -15,6 +15,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import java.util.Calendar
 
@@ -108,42 +109,53 @@ class DiningReservations : AppCompatActivity() {
             dialog.show()
         }
 
-        confirmationButton.setOnClickListener {
-            AlertDialog.Builder(this)
-                .setTitle("Confirmation")
-                .setMessage("Your Reservation for ${attendees.text} people on ${dateInput.text} at ${timeInput.text} for ${occasion.text} has been confirmed.")
-                .setPositiveButton(android.R.string.ok, null)
-                .show()
+confirmationButton.setOnClickListener {
+    val occasionText = occasion.text.toString()
+    val date = dateInput.text.toString()
+    val time = timeInput.text.toString()
+    val attendeesText = attendees.text.toString()
 
-            val occasionText = occasion.text.toString()
-            val date = dateInput.text.toString()
-            val time = timeInput.text.toString()
-            val attendeesText = attendees.text.toString()
+    if (occasionText.isNotEmpty() && date.isNotEmpty() && time.isNotEmpty() && attendeesText.isNotEmpty()) {
+        val db = FirebaseFirestore.getInstance()
+        val auth = FirebaseAuth.getInstance()
+        val user = auth.currentUser
+        if (user != null){
+            val userEmail = user.email
+            db.collection("Users").whereEqualTo("Email", userEmail).get()
+                .addOnSuccessListener { documents ->
+                    for (document in documents) {
+                        Log.d("Profile", "${document.id} => ${document.data}")
+                        val room = document.getString("Room")
+                        Log.d("Room", room.toString())
 
-            if (occasionText.isNotEmpty() && date.isNotEmpty() && time.isNotEmpty() && attendeesText.isNotEmpty()) {
-                val reservation = hashMapOf(
-                    "occasion" to occasionText,
-                    "date" to date,
-                    "time" to time,
-                    "attendees" to attendeesText
-                )
+                        val reservation = hashMapOf(
+                            "occasion" to occasionText,
+                            "date" to date,
+                            "time" to time,
+                            "attendees" to attendeesText,
+                            "Room" to room
+                        )
 
-                val db = FirebaseFirestore.getInstance()
-                db.collection("Dinning").add(reservation)
-                    .addOnSuccessListener { documentReference ->
-                        Log.d(TAG, "DocumentSnapshot added with ID: ${documentReference.id}")
-                        AlertDialog.Builder(this)
-                            .setTitle("Confirmation")
-                            .setMessage("Your reservation for $attendeesText people on $date at $time for $occasionText has been confirmed.")
-                            .setPositiveButton(android.R.string.ok, null)
-                            .show()
+                        db.collection("Dinning").add(reservation)
+                            .addOnSuccessListener { documentReference ->
+                                Log.d(TAG, "DocumentSnapshot added with ID: ${documentReference.id}")
+                                AlertDialog.Builder(this)
+                                    .setTitle("Confirmation")
+                                    .setMessage("Your reservation for $attendeesText people on $date at $time for $occasionText has been confirmed.")
+                                    .setPositiveButton(android.R.string.ok, null)
+                                    .show()
+                            }
+                            .addOnFailureListener { e ->
+                                Log.w(TAG, "Error adding document", e)
+                            }
                     }
-                    .addOnFailureListener { e ->
-                        Log.w(TAG, "Error adding document", e)
-                    }
-            } else {
-                // Handle case where occasion, date, time or attendees is not set
-            }
+                }
+                .addOnFailureListener { exception ->
+                    Log.d("Profile", "Error getting documents: ", exception)
+                }
         }
+    } else {
+        // Handle case where occasion, date, time or attendees is not set
     }
+}}
 }
