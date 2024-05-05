@@ -146,7 +146,7 @@
         android:layout_marginBottom="44dp"
         android:text="Back"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/confirmination_button"
+        app:layout_constraintEnd_toStartOf="@+id/confirmation_button"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent" />
 
