@@ -64,14 +64,13 @@ private fun updateData() {
     db.collection("FAQ").document(currentDay)
         .addSnapshotListener { value, error ->
             if (error != null) {
-                // Handle the error
                 return@addSnapshotListener
             }
 
             if (value != null && value.data != null) {
                 val myDataset = ArrayList<String>()
-                val fieldNames = listOf("Q1", "Q2", "Q3","Q4", "Q5", "Q6","Q7") // Add more question fields if needed
-                val fieldvalues = listOf("A1", "A2","A3","A4","A5","A6","A7") // Add more answer fields if needed
+                val fieldNames = listOf("Q1", "Q2", "Q3","Q4", "Q5", "Q6","Q7")
+                val fieldvalues = listOf("A1", "A2","A3","A4","A5","A6","A7")
                 for (i in fieldNames.indices) {
                     val question = value.data!![fieldNames[i]]
                     val answer = value.data!![fieldvalues[i]]

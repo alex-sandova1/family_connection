@@ -42,7 +42,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/services"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.151" />
+        app:layout_constraintVertical_bias="0.145" />
 
     <TextView
         android:id="@+id/date"
@@ -67,7 +67,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/date"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.247" />
+        app:layout_constraintVertical_bias="0.235" />
 
     <TextView
         android:id="@+id/time"
@@ -83,7 +83,7 @@
 
     <EditText
         android:id="@+id/time_input"
-        android:layout_width="80dp"
+        android:layout_width="85dp"
         android:layout_height="40dp"
         android:layout_marginTop="28dp"
         android:hint="@string/hh_mm"

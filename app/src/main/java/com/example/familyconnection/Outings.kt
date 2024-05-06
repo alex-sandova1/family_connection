@@ -156,7 +156,12 @@ class Outings : AppCompatActivity() {
                         }
                 }
             } else {
-                // Handle case where date, time, reason or person picking up is not set
+                Log.d(TAG, "One or more fields are empty")
+                AlertDialog.Builder(this)
+                    .setTitle("Error")
+                    .setMessage("Please fill in all fields.")
+                    .setPositiveButton(android.R.string.ok, null)
+                    .show()
             }
         }
     }
