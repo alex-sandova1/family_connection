@@ -76,8 +76,7 @@ private fun updateData() {
                     val question = value.data!![fieldNames[i]]
                     val answer = value.data!![fieldvalues[i]]
                     if (question != null && answer != null) {
-                        myDataset.add("$question")
-                        myDataset.add("$answer")
+                        myDataset.add("$question" + "\n" + "\n" + "$answer")
                     }
                 }
 
