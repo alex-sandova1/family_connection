@@ -93,12 +93,12 @@ class DiningReservations : AppCompatActivity() {
                 timeInput.setText(String.format("%02d:%02d %s", hourPicker.value, minutePicker.value * 30, amPmPicker.displayedValues[newVal]))
             }
 
-            // Set the OK button click listener to dismiss the dialog
+
             okButton.setOnClickListener {
                 dialog.dismiss()
             }
 
-            // Set the dialog properties and show it
+
             dialog.setTitle("Choose Time")
 
             val window = dialog.window
@@ -155,7 +155,11 @@ confirmationButton.setOnClickListener {
                 }
         }
     } else {
-        // Handle case where occasion, date, time or attendees is not set
+        AlertDialog.Builder(this)
+            .setTitle("Error")
+            .setMessage("Please fill in all fields.")
+            .setPositiveButton(android.R.string.ok, null)
+            .show()
     }
 }}
 }

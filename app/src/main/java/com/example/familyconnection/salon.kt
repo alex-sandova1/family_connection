@@ -37,7 +37,7 @@ class salon : AppCompatActivity() {
         val confirm = findViewById<Button>(R.id.confirmation_button)
         val dateInput = findViewById<EditText>(R.id.date_input)
         val timeInput = findViewById<EditText>(R.id.time_input)
-        val services = arrayOf("Extensions", "Dye", "Haircut") // replace with your services
+        val services = arrayOf("Extensions", "Perm", "Haircut","Manicure","Pedicure")
         val serviceSpinner = findViewById<Spinner>(R.id.service_spinner)
         val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, services)
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
