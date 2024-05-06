@@ -26,5 +26,13 @@ class Dining : AppCompatActivity() {
         Reservation.setOnClickListener {
             startActivity(Intent(this, DiningReservations::class.java))
         }
+        val always_available = findViewById<Button>(R.id.always_available)
+        always_available.setOnClickListener {
+            startActivity(Intent(this, AlwaysAvailable::class.java))
+        }
+        val specials = findViewById<Button>(R.id.daily_specials)
+        specials.setOnClickListener {
+            startActivity(Intent(this, Specials::class.java))
+        }
     }
 }

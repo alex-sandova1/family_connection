@@ -56,184 +56,34 @@
         app:layout_constraintStart_toEndOf="@+id/back" />
 
 
-    <TextView
-        android:id="@+id/starters"
+    <Button
+        android:id="@+id/always_available"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="Starters"
-        android:textSize="20sp"
+        android:layout_marginStart="146dp"
+        android:layout_marginTop="151dp"
+        android:layout_marginEnd="146dp"
+        android:layout_marginBottom="103dp"
+        android:text="Daily Menu"
+        app:layout_constraintBottom_toTopOf="@+id/daily_specials"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Dining_text" />
 
-
-    <TextView
-        android:id="@+id/Entry1"
+    <Button
+        android:id="@+id/daily_specials"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:text="Green Salad: "
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.075"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/starters" />
-
-    <TextView
-        android:id="@+id/Edescription1"
-        android:layout_width="244dp"
-        android:layout_height="79dp"
-        android:layout_marginTop="12dp"
-        android:text="Fresh icerberg lettuce with tomatoes, cheese and onions"
-        android:textSize="20sp"
+        android:layout_marginStart="137dp"
+        android:layout_marginTop="103dp"
+        android:layout_marginEnd="138dp"
+        android:layout_marginBottom="231dp"
+        android:text="Daily Specials"
+        app:layout_constraintBottom_toTopOf="@+id/back"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/Entry1"
-        app:layout_constraintTop_toBottomOf="@+id/starters" />
-
-    <TextView
-        android:id="@+id/Entry2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
-        android:text="Soup: "
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.095"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Entry1" />
-
-    <TextView
-        android:id="@+id/Edescription2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:text="Chicken Noodle soup"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.05"
-        app:layout_constraintStart_toEndOf="@+id/Entry2"
-        app:layout_constraintTop_toBottomOf="@+id/Edescription1" />
-
-    <TextView
-        android:id="@+id/MainCourse"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="168dp"
-        android:text="Main Course"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.503"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/starters" />
-
-    <TextView
-        android:id="@+id/MEntry1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Sheperds Pie: "
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.056"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/MainCourse" />
-
-    <TextView
-        android:id="@+id/MEdescription1"
-        android:layout_width="260dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="16dp"
-        android:text=" ground beef, carrots, peas and herbs  topped with a cheesy mashed potato layer"
-        android:textSize="15sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/MEntry1"
-        app:layout_constraintTop_toBottomOf="@+id/MainCourse" />
-
-    <TextView
-        android:id="@+id/MEntry2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
-        android:text="Fresh cod: "
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.076"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/MEntry1" />
-
-    <TextView
-        android:id="@+id/MEdescription2"
-        android:layout_width="283dp"
-        android:layout_height="44dp"
-        android:layout_marginTop="16dp"
-        android:text="Grilled cod served with mashed potatoes and Normandy blend"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/MEntry2"
-        app:layout_constraintTop_toBottomOf="@+id/MEdescription1" />
-
-
-    <TextView
-        android:id="@+id/Dessert"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="168dp"
-        android:text="Dessert"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/MainCourse" />
-
-    <TextView
-        android:id="@+id/DEntry1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
-        android:text="Tiramisu"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.216"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Dessert" />
-
-    <TextView
-        android:id="@+id/DEntry2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
-        android:text="Ice-Cream"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.786"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Dessert" />
-
-    <TextView
-        android:id="@+id/or"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="or"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/DEntry2"
-        app:layout_constraintHorizontal_bias="0.554"
-        app:layout_constraintStart_toEndOf="@+id/DEntry1"
-        app:layout_constraintTop_toBottomOf="@+id/Dessert"
-        app:layout_constraintVertical_bias="0.116" />
-
-    <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/fragmentContainerView"
-        android:name="com.example.familyconnection.Menu_fragment"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/always_available" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
