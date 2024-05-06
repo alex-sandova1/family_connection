@@ -21,7 +21,6 @@ import java.util.Calendar
 
 class Outings : AppCompatActivity() {
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -95,12 +94,12 @@ class Outings : AppCompatActivity() {
                 timeInput.setText(String.format("%02d:%02d %s", hourPicker.value, minutePicker.value * 30, amPmPicker.displayedValues[newVal]))
             }
 
-            // Set the OK button click listener to dismiss the dialog
+
             okButton.setOnClickListener {
                 dialog.dismiss()
             }
 
-            // Set the dialog properties and show it
+
             dialog.setTitle("Choose Time")
 
             val window = dialog.window
@@ -111,53 +110,54 @@ class Outings : AppCompatActivity() {
             dialog.show()
         }
 
-       confirmationButton.setOnClickListener {
-    val date = dateInput.text.toString()
-    val time = timeInput.text.toString()
-    val reasonText = reason.text.toString()
-    val personPickingUp = person_pickingup.text.toString()
+        confirmationButton.setOnClickListener {
+            val date = dateInput.text.toString()
+            val time = timeInput.text.toString()
+            val reasonText = reason.text.toString()
+            val personPickingUp = person_pickingup.text.toString()
 
-    if (date.isNotEmpty() && time.isNotEmpty() && reasonText.isNotEmpty() && personPickingUp.isNotEmpty()) {
-        val db = FirebaseFirestore.getInstance()
-        val auth = FirebaseAuth.getInstance()
-        val user = auth.currentUser
-        if (user != null){
-            val userEmail = user.email
-            db.collection("Users").whereEqualTo("Email", userEmail).get()
-                .addOnSuccessListener { documents ->
-                    for (document in documents) {
-                        Log.d("Profile", "${document.id} => ${document.data}")
-                        val room = document.getString("Room")
-                        Log.d("Room", room.toString())
+            if (date.isNotEmpty() && time.isNotEmpty() && reasonText.isNotEmpty() && personPickingUp.isNotEmpty()) {
+                val db = FirebaseFirestore.getInstance()
+                val auth = FirebaseAuth.getInstance()
+                val user = auth.currentUser
+                if (user != null){
+                    val userEmail = user.email
+                    db.collection("Users").whereEqualTo("Email", userEmail).get()
+                        .addOnSuccessListener { documents ->
+                            for (document in documents) {
+                                Log.d("Profile", "${document.id} => ${document.data}")
+                                val room = document.getString("Room")
+                                Log.d("Room", room.toString())
 
-                        val outing = hashMapOf(
-                            "date" to date,
-                            "time" to time,
-                            "reason" to reasonText,
-                            "person_pickingup" to personPickingUp,
-                            "Room" to room
-                        )
+                                val outing = hashMapOf(
+                                    "date" to date,
+                                    "time" to time,
+                                    "reason" to reasonText,
+                                    "person_pickingup" to personPickingUp,
+                                    "Room" to room
+                                )
 
-                        db.collection("Outings").add(outing)
-                            .addOnSuccessListener { documentReference ->
-                                Log.d(TAG, "DocumentSnapshot added with ID: ${documentReference.id}")
-                                AlertDialog.Builder(this)
-                                    .setTitle("Confirmation")
-                                    .setMessage("Your outing on $date at $time has been confirmed.")
-                                    .setPositiveButton(android.R.string.ok, null)
-                                    .show()
+                                db.collection("Outings").add(outing)
+                                    .addOnSuccessListener { documentReference ->
+                                        Log.d(TAG, "DocumentSnapshot added with ID: ${documentReference.id}")
+                                        AlertDialog.Builder(this)
+                                            .setTitle("Confirmation")
+                                            .setMessage("Your outing on $date at $time has been confirmed.")
+                                            .setPositiveButton(android.R.string.ok, null)
+                                            .show()
+                                    }
+                                    .addOnFailureListener { e ->
+                                        Log.w(TAG, "Error adding document", e)
+                                    }
                             }
-                            .addOnFailureListener { e ->
-                                Log.w(TAG, "Error adding document", e)
-                            }
-                    }
+                        }
+                        .addOnFailureListener { exception ->
+                            Log.d("Profile", "Error getting documents: ", exception)
+                        }
                 }
-                .addOnFailureListener { exception ->
-                    Log.d("Profile", "Error getting documents: ", exception)
-                }
+            } else {
+                // Handle case where date, time, reason or person picking up is not set
+            }
         }
-    } else {
-        // Handle case where date, time, reason or person picking up is not set
     }
-}}
 }

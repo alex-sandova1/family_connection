@@ -20,18 +20,18 @@ class Questions : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_activities)
+        setContentView(R.layout.activity_questions)
 
-        val Return = findViewById<Button>(R.id.back)
+        val Return = findViewById<Button>(R.id.back_button)
         val buttonPrevious = findViewById<Button>(R.id.button_previous)
         val buttonNext = findViewById<Button>(R.id.button_next)
         val textViewCurrentDay = findViewById<TextView>(R.id.textView_currentDay)
 
-        val departments = listOf("Dinning Room", "Front Desk")
+        val departments = listOf("Dinning Room", "Front Desk", "Activities")
 
         viewManager = LinearLayoutManager(this)
 
-        recyclerView = findViewById<RecyclerView>(R.id.activities_recycler_view).apply {
+        recyclerView = findViewById<RecyclerView>(R.id.faq_recycler_view).apply {
             setHasFixedSize(true)
             layoutManager = viewManager
         }

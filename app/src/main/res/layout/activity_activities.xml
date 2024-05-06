@@ -14,13 +14,13 @@
         android:id="@+id/Activities"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="4dp"
         android:layout_marginEnd="8dp"
         android:maxLines="13"
-        android:text="@string/activities"
+        android:text="@string/recreational_activities"
         android:textSize="30sp"
         app:layout_constraintEnd_toStartOf="@+id/logo"
-        app:layout_constraintHorizontal_bias="0.832"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -28,10 +28,10 @@
         android:id="@+id/logo"
         android:layout_width="98dp"
         android:layout_height="54dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="4dp"
         android:src="@mipmap/sample_logo"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.971"
+        app:layout_constraintHorizontal_bias="0.993"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

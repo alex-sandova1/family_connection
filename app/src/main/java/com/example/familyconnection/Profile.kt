@@ -29,6 +29,9 @@ class Profile : AppCompatActivity() {
         val allergies = findViewById<TextView>(R.id.Allergy_type)
         val allergyLevel = findViewById<TextView>(R.id.Allergy_level)
         val phone = findViewById<TextView>(R.id.Number)
+        val fav_act_1 = findViewById<TextView>(R.id.favorite_activity1_input)
+        val fav_act_2 = findViewById<TextView>(R.id.favorite_activity2_input)
+        val fav_act_3 = findViewById<TextView>(R.id.favorite_activity3_input)
 
 
         // Fetch the user data from Firestore
@@ -49,6 +52,9 @@ class Profile : AppCompatActivity() {
                         nameInput.text = document.getString("Name")
                         phone.text = document.getString("Phone Number")
                         room_number.text = document.getString("Room")
+                        fav_act_1.text = document.getString("Activity1")
+                        fav_act_2.text = document.getString("Activity2")
+                        fav_act_3.text = document.getString("Activity3")
 
 
                     }

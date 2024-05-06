@@ -50,4 +50,8 @@
     <string name="people">#_people</string>
     <string name="ok">OK</string>
     <string name="email_email_com">email@email.com</string>
+    <string name="general_information">General Information</string>
+    <string name="favorite_activity">Favorite Activity:</string>
+    <string name="favorite">Favorite</string>
+    <string name="recreational_activities">Recreational Activities</string>
 </resources>

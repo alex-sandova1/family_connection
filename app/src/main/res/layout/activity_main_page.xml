@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+git <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
@@ -139,14 +139,14 @@
         android:id="@+id/Calendar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/activities"
+        android:text="@string/recreational_activities"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.271"
+        app:layout_constraintHorizontal_bias="0.177"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Activities_Icon"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.002" />
 
     <TextView
         android:id="@+id/contact"
@@ -156,7 +156,7 @@
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.681"
+        app:layout_constraintHorizontal_bias="0.584"
         app:layout_constraintStart_toEndOf="@+id/Calendar"
         app:layout_constraintTop_toBottomOf="@+id/Activities_Icon"
         app:layout_constraintVertical_bias="0.002" />
