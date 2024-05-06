@@ -70,7 +70,7 @@ class activities : AppCompatActivity() {
 
                 if (value != null && value.data != null) {
                     val myDataset = ArrayList<String>()
-                    val fieldNames = listOf("1st", "2nd", "3rd","4th","5th","6th") // replace with your field names in the order you want
+                    val fieldNames = listOf("first", "second", "third","fourth","fifth","sixth")
                     for (fieldName in fieldNames) {
                         val fieldValue = value.data!![fieldName]
                         if (fieldValue != null) {

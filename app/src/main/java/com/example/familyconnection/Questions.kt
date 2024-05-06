@@ -37,7 +37,7 @@ class Questions : AppCompatActivity() {
         }
 
         Return.setOnClickListener {
-            startActivity(Intent(this, main_page::class.java))
+            startActivity(Intent(this, front_desk::class.java))
         }
 
         buttonPrevious.setOnClickListener {
